@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: right;
+            background-color: #fff;
+        }
+
+        form {
+            font-size: 14px;
+            background: #fff;
+            max-width: 300px;
+            margin: 0 auto;
+            padding:  5px 5px 5px;
+           
+
+
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 30px;
+            color: black;
+            font-weight: 700 !important;        
+            margin-top: 20px;
+        }
+
+        input,
+        textarea {
+            width: 180px;
+            padding: .375rem .75rem
+    
+        }
+
+        .enviar input {
+            background: linear-gradient(180deg, #FF8956 0%, #FF7769 100%);
+            border-color: #FF7769;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 12px;
+        }
+
+        .btn {
+            background: linear-gradient(180deg, #FF8956 0%, #FF7769 100%);
+            border-color: #FF7769;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 8px;
+        }
+        s{
+            display: flex;
+            aling-items: center;
+            justify-content: space-between;
+
+        }
+
+
+        .enviar input:hover {
+            background: #078;
+        }
+    </style>
+    <script type="text/javascript">
+        function calcularIMC() {
+            var peso = eval(document.form.peso.value)
+            var alt = eval(document.form.alt.value)
+            var alt2 = alt / 100
+            var IMC = peso / (alt2 * alt2)
+            document.form.massacor.value = custRound(IMC, 1);
+            if (document.form.massacor.value < 18.5) document.form.comment.value = "Peso Baixo";
+            if (document.form.massacor.value >= 18.5 && document.form.massacor.value <= 24.9) document.form.comment.value = "Peso Ideal";
+            if (document.form.massacor.value >= 25 && document.form.massacor.value <= 29.9) document.form.comment.value = "Acima do Peso";
+            if (document.form.massacor.value >= 30 && document.form.massacor.value <= 34.9) document.form.comment.value = "Obesidade Tipo I";
+            if (document.form.massacor.value >= 35 && document.form.massacor.value <= 39.9) document.form.comment.value = "Obesidade Tipo II";
+            if (document.form.massacor.value >= 40 && document.form.massacor.value <= 49.9) document.form.comment.value = "Obesidade Mórbida";
+            if (document.form.massacor.value > 40) document.form.comment.value = "Obesidade Extrema";
+        }
+
+        function custRound(x, places) {
+            return (Math.round(x * Math.pow(10, places))) / Math.pow(10, places)
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <form name="form" id="form">
+            <h1>Preenchar as Informações e descubra seu IMC</h1>
+            <br>
+            <input type="Text" name="peso" size="15" placeholder="Qual seu peso? (KG)" required="required">
+            <br>
+            <br>
+            <input type="Text" name="alt" size="15" placeholder="Qual sua Altura (CM)" required="required">
+            <br>
+
+            <p class="tel">
+                <input type="tel" name="tel" placeholder="Qual o número de celular? " required="required">
+            </p>
+
+            <p class="email">
+                <input type="email" name="email" placeholder="Qual seu e-mail?" required="required">
+            </p>
+           <p class="s">
+            <input type="radio" name="sexo" value="opcao" id="sexo_0" /><label for="s">Masculino</label>
+            <input type="radio" name="sexo" value="opcao" id="sexo_1" /><label for="s">Feminino</label>
+            </p>
+            <p class="enviar">
+                <input type="button" value="Calcular IMC"  onClick="calcularIMC()" name="button" >
+                <br>
+                <br>
+                <input type="reset" value="Limpar Valores">
+            </p>
+
+
+            <h1>IMC</h1>
+
+
+            <input type="Text" name="massacor" id="massacor" size="12" placeholder="Clique em Calcular IMC"> 
+            <br>
+            <h1>Avaliação do IMC</h1>
+
+            <input type="Text" name="comment" id="comment" size="12">
+            <br>
+            <br>
+            <center>
+                <span style="font-size: x-mediu,;"><a href="http://ocodigojejumintermitente.com/" target=”_blank”>O
+                        MÉTODO JEJUM INTERMITENTE</a></span></center>
+            <center>
+                <span style="font-size: x-medium;"><a href="http://ocodigojejumintermitente.com/" target=”_blank”>6
+                        E-BOOK GRÁTIS </a></span></center>
+        </form>
+    </div>
+</body>
+</html>
